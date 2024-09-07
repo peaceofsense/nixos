@@ -1,3 +1,5 @@
+# Use your harware-configuration.nix
+
 { config, pkgs, ... }:
 
 {
@@ -20,8 +22,14 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Enables wireless support and openvpn via network manager.
+  networkmanager = {
+  	enable = true;
+      	plugins = with pkgs; [
+        networkmanager-openvpn
+        networkmanager-openconnect
+      ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -115,6 +123,7 @@
   vscode
   git
   btop
+  fastfetch
   htop
   kitty
   kittysay
@@ -127,7 +136,7 @@
   vivaldi
   vivaldi-ffmpeg-codecs 
   zoom-us     
-
+  wl-clipboard
  #  wget
   ];
 
