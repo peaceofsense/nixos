@@ -114,18 +114,18 @@
     discord
     eyedropper
     fastfetch
+    ffmpeg
     freerdp
+    fswebcam
     gcc
     geany
     git
-    #gnome.gnome-shell      # GNOME shell for the minimal environment
-    #gnome.gnome-terminal   # (Optional) GNOME terminal
-    #gnome.gnome-control-center # (Optional) Control center
     gparted
     grim
     htop
     hyprland
     hyprpaper
+    hyprpicker
     jabref
     kitty
     kittysay
@@ -142,6 +142,7 @@
     python3
     ripgrep
     ripgrep-all
+    rofi-wayland
     slack
     sl
     slurp
@@ -149,6 +150,8 @@
     stow
     spotify
     stow
+    swayidle
+    swaylock-effects
     texstudio
     thunderbird
     unzip
@@ -161,6 +164,7 @@
     wget
     whatsapp-for-linux
     wl-clipboard
+    wl-color-picker
     xclip
     xdg-utils
     zoom-us
