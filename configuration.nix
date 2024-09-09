@@ -59,6 +59,12 @@
   };
 
   services.displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
+  
+  # VirtualBox kernel modules load
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -79,7 +85,7 @@
   users.users.peaceofsense = {
     isNormalUser = true;
     description = "peaceofsense";
-    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -114,13 +120,14 @@
     discord
     eyedropper
     fastfetch
-    ffmpeg
     freerdp
     fswebcam
     gcc
     geany
     git
     gparted
+    gnome.gnome-boxes
+    gnugrep
     grim
     htop
     hyprland
@@ -167,6 +174,7 @@
     wl-color-picker
     xclip
     xdg-utils
+    yazi
     zoom-us
   ];
   
