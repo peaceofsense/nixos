@@ -70,7 +70,12 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  
+  programs.bashrc = {
+    enable = true;
+  };
 
+  
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
