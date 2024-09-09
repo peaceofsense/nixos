@@ -146,6 +146,7 @@
     openconnect
     pamixer
     pdfarranger
+    playerctl
     python3
     ripgrep
     ripgrep-all
