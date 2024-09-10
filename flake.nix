@@ -4,8 +4,8 @@
   
   inputs = {
     nixpkgsStable.url = "nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgsStable"; # looks for same version of packages
+    #home-manager.url = "github:nix-community/home-manager/release-24.05";
+    #home-manager.inputs.nixpkgs.follows = "nixpkgsStable"; # looks for same version of packages
     nixpkgsUnstable.url = "nixpkgs/nixos-unstable";
   };
   
@@ -22,12 +22,12 @@
 	modules = [ ./configuration.nix ];
       };
     };
-    homeConfigurations = {
-      peaceofsense = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-	modules = [ ./home.nix ]; 
-      };
-    };
+  #  homeConfigurations = {
+  #    peaceofsense = home-manager.lib.homeManagerConfiguration {
+  #      inherit pkgs;
+	#modules = [ ./home.nix ]; 
+  #    };
+  #  };
   };
 
 }

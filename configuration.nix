@@ -55,11 +55,13 @@
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = false; # Disable full GNOME
-    displayManager.gdm.enable = true;    # Enable GDM (GNOME Display Manager) if you want to keep the login manager
+    displayManager.gdm.enable = true;
   };
 
-  services.displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
-  
+  services.displayManager = { 
+    sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
+  #  sddm.enable = true;
+  };
   # VirtualBox kernel modules load
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -87,12 +89,18 @@
     description = "peaceofsense";
     extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
     packages = with pkgs; [
-    #  thunderbird
+    arc-theme
+    arc-kde-theme
+    graphite-gtk-theme
+    graphite-kde-theme
+    orchis-theme
+    yaru-theme
     ];
   };
 
   # Install programs
   programs.firefox.enable = true;
+  #programs.gh.enable = true;
   programs.thunar.enable = true;
   programs.neovim = {
   	enable = true;
@@ -116,20 +124,25 @@
     cmatrix
     conda
     cowsay
+    dconf
     discord
     eyedropper
     fastfetch
     freerdp
     fswebcam
+    fzf
     gcc
     geany
     git
     gparted
     gnome.gnome-boxes
+    gnome.gnome-control-center
     gnugrep
     grim
     htop
+    hypridle
     hyprland
+    hyprlock
     hyprpaper
     hyprpicker
     jabref
@@ -142,11 +155,13 @@
     nix
     obs-studio
     obsidian
+    okular
     openconnect
     pamixer
     pdfarranger
     playerctl
     python3
+    rdesktop
     ripgrep
     ripgrep-all
     rofi-wayland
@@ -156,11 +171,14 @@
     solaar
     stow
     spotify
+    starship
     stow
     swayidle
     swaylock-effects
     texstudio
     thunderbird
+    trash-cli
+    tree
     unzip
     vivaldi
     vivaldi-ffmpeg-codecs
@@ -175,7 +193,9 @@
     xclip
     xdg-utils
     yazi
+    zathura
     zoom-us
+    zoxide
   ];
   
   xdg.portal = {
@@ -207,6 +227,33 @@
 
     };
   };
+  nixpkgs = {
+    overlays = [
+      (self: super: {
+        gnome = super.gnome.overrideScope (selfg: superg: {
+          gnome-shell = superg.gnome-shell.overrideAttrs (old: {
+            patches = (old.patches or []) ++ [
+              (let
+                # bg = pkgs.fetchurl {
+                #   url = "https://orig00.deviantart.net/0054/f/2015/129/b/9/reflection_by_yuumei-d8sqdu2.jpg";
+                #   sha256 = "0f0vlmdj5wcsn20qg79ir5cmpmz5pysypw6a711dbaz2r9x1c79l";
+                # };
+              in pkgs.writeText "bg.patch" ''
+                --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+                +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+                @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
+                 /* Login Dialog */
+                 .login-dialog {
+                   background-color: $_gdm_bg;
+                +  background-color: #000000;
+                 }
+              '')
+            ];
+          });
+        });
+      })
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -217,12 +264,17 @@
   # };
 
   # List services that you want to enable:
+  services.xrdp = {
+    enable = true;
+    openFirewall = true;
+  };
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 3389 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
