@@ -210,7 +210,7 @@
     whatsapp-for-linux
     wl-clipboard
     wl-color-picker
-    wl-sunset
+    wlsunset
     wsdd
     xclip
     xdg-utils
