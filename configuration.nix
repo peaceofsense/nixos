@@ -144,6 +144,7 @@
     freerdp3
     fswebcam
     fzf
+    wl-gammarelay-rs
     gcc
     geany
     git
