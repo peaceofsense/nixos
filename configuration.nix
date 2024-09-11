@@ -144,7 +144,6 @@
     freerdp3
     fswebcam
     fzf
-    wl-gammarelay-rs
     gcc
     geany
     git
@@ -211,6 +210,7 @@
     whatsapp-for-linux
     wl-clipboard
     wl-color-picker
+    wl-sunset
     wsdd
     xclip
     xdg-utils
