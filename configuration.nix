@@ -27,7 +27,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
-
+  hardware.pulseaudio.enable = false;
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -54,24 +54,36 @@
   # Enable the GNOME Desktop Environment.
   services.xserver = {
     enable = true;
-    desktopManager.gnome.enable = false; # Disable full GNOME
+    desktopManager.gnome.enable = true; # Disable full GNOME
     displayManager.gdm.enable = true;
   };
 
+  services.power-profiles-daemon.enable = false;
+
+
   services.displayManager = { 
-    sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
+    #  sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
   #  sddm.enable = true;
   };
   # VirtualBox kernel modules load
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
-
+  #  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
     variant = "";
+  };
+  
+  services.samba = {
+    enable = true;
+  };
+
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
   };
 
   # Configure console keymap
@@ -87,7 +99,7 @@
   users.users.peaceofsense = {
     isNormalUser = true;
     description = "peaceofsense";
-    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
+    extraGroups = [ "sambashare" "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
     packages = with pkgs; [
     arc-theme
     arc-kde-theme
@@ -121,6 +133,7 @@
     btop
     brave
     brightnessctl
+    cifs-utils
     cmatrix
     conda
     cowsay
@@ -128,7 +141,7 @@
     discord
     eyedropper
     fastfetch
-    freerdp
+    freerdp3
     fswebcam
     fzf
     gcc
@@ -137,8 +150,12 @@
     gparted
     gnome.gnome-boxes
     gnome.gnome-control-center
+    gnome.nautilus
     gnugrep
     grim
+    gvfs
+    gnome.gvfs
+    hfsprogs
     htop
     hypridle
     hyprland
@@ -162,9 +179,11 @@
     playerctl
     python3
     rdesktop
+    remmina
     ripgrep
     ripgrep-all
     rofi-wayland
+    samba
     slack
     sl
     slurp
@@ -175,6 +194,7 @@
     stow
     swayidle
     swaylock-effects
+    telegram-desktop
     texstudio
     thunderbird
     trash-cli
@@ -190,6 +210,7 @@
     whatsapp-for-linux
     wl-clipboard
     wl-color-picker
+    wsdd
     xclip
     xdg-utils
     yazi
@@ -197,11 +218,21 @@
     zoom-us
     zoxide
   ];
-  
+
+  fileSystems."/mnt/share" = {
+    device = "//131.188.251.29";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+    in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
+      #xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
       xdg-desktop-portal-hyprland
     ];
@@ -210,7 +241,6 @@
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";  # Runs garbage collection weekly
   nix.gc.options = "--delete-older-than 30d";
-
   services.tlp = {
     enable = true;
     settings = {
@@ -277,7 +307,8 @@
   networking.firewall.allowedTCPPorts = [ 3389 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
