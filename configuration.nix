@@ -141,6 +141,7 @@
     discord
     eyedropper
     fastfetch
+    feh
     freerdp3
     fswebcam
     fzf
@@ -176,6 +177,7 @@
     openconnect
     pamixer
     pdfarranger
+    phinger-cursors
     playerctl
     python3
     rdesktop
