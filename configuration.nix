@@ -169,6 +169,7 @@
     libreoffice-still
     lua
     luajitPackages.luarocks
+    lxappearance
     neovim
     nix
     obs-studio
