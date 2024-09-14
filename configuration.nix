@@ -163,6 +163,7 @@
     hyprlock
     hyprpaper
     hyprpicker
+    hyprshot
     jabref
     kitty
     kittysay
