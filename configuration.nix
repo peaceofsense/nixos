@@ -23,7 +23,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
   # Enable networking
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
@@ -217,6 +217,7 @@
     wsdd
     xclip
     xdg-utils
+    xournalpp
     yazi
     zathura
     zoom-us
