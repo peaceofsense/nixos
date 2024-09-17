@@ -18,6 +18,7 @@
       lexend
       jost
       dejavu_fonts
+      nerdfonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -31,8 +32,8 @@
     fontconfig = {
       defaultFonts = {
         monospace = [
-          "JetBrainsMono"
           "JetBrainsMono Nerd Font"
+          "JetBrainsMono"
           "Noto Color Emoji"
         ];
         sansSerif = ["Lexend" "Noto Color Emoji"];
