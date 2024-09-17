@@ -179,6 +179,7 @@
     okular
     openconnect
     pamixer
+    papirus-icon-theme
     pdfarranger
     phinger-cursors
     playerctl
