@@ -185,7 +185,7 @@
     phinger-cursors
     playerctl
     python3
-    qalculate
+    qalculate-gtk
     rdesktop
     remmina
     ripgrep
