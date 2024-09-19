@@ -23,6 +23,7 @@
       noto-fonts-cjk
       noto-fonts-emoji
       jetbrains-mono
+      font-awesome_5
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
     ];
 

@@ -178,12 +178,14 @@
     obsidian
     okular
     openconnect
+    # openssl_3_3
     pamixer
     papirus-icon-theme
     pdfarranger
     phinger-cursors
     playerctl
     python3
+    qalculate
     rdesktop
     remmina
     ripgrep
@@ -198,6 +200,7 @@
     spotify
     starship
     stow
+    #sublime4
     swayidle
     swaylock-effects
     telegram-desktop
