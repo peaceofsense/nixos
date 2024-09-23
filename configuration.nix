@@ -171,9 +171,9 @@
     libreoffice-still
     lua
     luajitPackages.luarocks
-    lxappearance
     neovim
     nix
+    nwg-look
     obs-studio
     obsidian
     okular
@@ -227,6 +227,7 @@
     zathura
     zoom-us
     zoxide
+    # Install a package from unstable
   ];
 
   fileSystems."/mnt/share" = {
