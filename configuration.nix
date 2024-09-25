@@ -18,6 +18,7 @@
   boot.loader.grub.efiSupport = true;	
 
   networking.hostName = "nixos"; # Define your hostname.
+  systemd.services.NetworkManager-wait-online.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
