@@ -15,11 +15,12 @@
       system = "x86_64-linux";
       #lib-un = inputs.nixpkgUnstable.lib;
       pkgs = nixpkgsStable.legacyPackages.${system};
+      pkgsUnstable = nixpkgsUnstable.legacyPackages.${system};
     in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;        
-	modules = [ ./configuration.nix ];
+	  modules = [ ./configuration.nix ];
       };
     };
   #  homeConfigurations = {

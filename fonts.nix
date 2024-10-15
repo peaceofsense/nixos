@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
+      font-awesome
       material-icons
       material-design-icons
       emacs-all-the-icons-fonts

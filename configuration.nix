@@ -129,7 +129,13 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
+
   environment.systemPackages = with pkgs; [
+    (lutris.override {
+       extraPkgs = pkgs: [
+         # List package dependencies here
+       ];
+    })
     bibata-cursors
     blueman
     btop
@@ -198,6 +204,7 @@
     slurp
     solaar
     stow
+    steam-run
     spotify
     starship
     stow
