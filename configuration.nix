@@ -136,6 +136,7 @@
          # List package dependencies here
        ];
     })
+    testdisk-qt
     bibata-cursors
     blueman
     btop
@@ -212,6 +213,7 @@
     swayidle
     swaylock-effects
     telegram-desktop
+    texliveFull
     texstudio
     thunderbird
     trash-cli
@@ -234,6 +236,7 @@
     yazi
     zathura
     zoom-us
+    zotero
     zoxide
     # Install a package from unstable
   ];
