@@ -176,6 +176,7 @@
     jabref
     kitty
     kittysay
+    libnotify
     libreoffice-still
     lua
     luajitPackages.luarocks
@@ -210,6 +211,7 @@
     starship
     stow
     #sublime4
+    swaynotificationcenter
     swayidle
     swaylock-effects
     telegram-desktop
