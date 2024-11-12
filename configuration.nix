@@ -119,11 +119,11 @@
   	enable = true;
 	defaultEditor = true;
   };
-  programs.steam = {
-  	enable = true;
-	remotePlay.openFirewall = true;
-	dedicatedServer.openFirewall = true;
-  };
+  #  programs.steam = {
+  #  	enable = true;
+  #	remotePlay.openFirewall = true;
+  #	dedicatedServer.openFirewall = true;
+  #  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -157,6 +157,7 @@
     gcc
     geany
     git
+    github-desktop
     gparted
     gnome.gnome-boxes
     gnome.gnome-control-center
@@ -190,6 +191,7 @@
     # openssl_3_3
     pamixer
     papirus-icon-theme
+    parted
     pdfarranger
     phinger-cursors
     playerctl
@@ -206,7 +208,7 @@
     slurp
     solaar
     stow
-    steam-run
+    #steam-run
     spotify
     starship
     stow
