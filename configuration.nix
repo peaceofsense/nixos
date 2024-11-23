@@ -69,8 +69,8 @@
   # VirtualBox kernel modules load
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
-  #  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "i2c-dev" "ddcci_backlight"];
+  boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -100,7 +100,7 @@
   users.users.peaceofsense = {
     isNormalUser = true;
     description = "peaceofsense";
-    extraGroups = [ "sambashare" "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" "i2c" ];
+    extraGroups = [ "sambashare" "networkmanager" "i2c" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
     packages = with pkgs; [
     arc-theme
     arc-kde-theme
