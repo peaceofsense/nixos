@@ -147,7 +147,10 @@
     conda
     cowsay
     dconf
+    ddcutil
+    ddcui
     discord
+    exfatprogs
     eyedropper
     fastfetch
     feh
