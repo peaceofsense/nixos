@@ -100,7 +100,7 @@
   users.users.peaceofsense = {
     isNormalUser = true;
     description = "peaceofsense";
-    extraGroups = [ "sambashare" "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
+    extraGroups = [ "sambashare" "networkmanager" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" "i2c" ];
     packages = with pkgs; [
     arc-theme
     arc-kde-theme
