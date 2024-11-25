@@ -1,5 +1,6 @@
 # Use your harware-configuration.nix
 
+
 { config, pkgs, ... }:
 
 {
@@ -29,7 +30,10 @@
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;
-  # Set your time zone.
+  # Enable i2c
+  hardware.i2c.enable = true;
+
+# Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
@@ -66,11 +70,15 @@
     #  sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
   #  sddm.enable = true;
   };
-  # VirtualBox kernel modules load
+  # Kernel modules load
+  # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" "i2c-dev" "ddcci_backlight"];
-  boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel"]; # "i2c-dev" "ddcci_backlight"];
+  services.udev.extraRules = ''
+      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
