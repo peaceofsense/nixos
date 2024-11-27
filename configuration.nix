@@ -227,6 +227,7 @@
     swaynotificationcenter
     swayidle
     swaylock-effects
+    tealdeer
     telegram-desktop
     texliveFull
     texstudio
