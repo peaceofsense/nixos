@@ -150,6 +150,7 @@
     btop
     brave
     brightnessctl
+    calibre
     cifs-utils
     cmatrix
     conda
