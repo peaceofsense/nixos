@@ -74,7 +74,11 @@
   # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
-  boot.kernelModules = [ "kvm-amd" "kvm-intel"]; # "i2c-dev" "ddcci_backlight"];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "v4l2loopback"]; # "i2c-dev" "ddcci_backlight"];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+  '';
   services.udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
@@ -150,7 +154,6 @@
     btop
     brave
     brightnessctl
-    calibre
     cifs-utils
     cmatrix
     conda
@@ -159,6 +162,7 @@
     ddcutil
     ddcui
     discord
+    droidcam 
     exfatprogs
     eyedropper
     fastfetch
