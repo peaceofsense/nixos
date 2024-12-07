@@ -105,14 +105,17 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-# Enable touchpad support (enabled default in most desktopManager).
+  # Enable adb 
+  programs.adb.enable = true;  
+
+  # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.peaceofsense = {
     isNormalUser = true;
     description = "peaceofsense";
-    extraGroups = [ "sambashare" "networkmanager" "i2c" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
+    extraGroups = [ "adbsuers" "sambashare" "networkmanager" "i2c" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
     packages = with pkgs; [
     arc-theme
     arc-kde-theme
@@ -167,6 +170,7 @@
     eyedropper
     fastfetch
     feh
+    ffmpeg-full
     freerdp3
     fswebcam
     fzf
@@ -219,6 +223,7 @@
     ripgrep-all
     rofi-wayland
     samba
+    scrcpy
     slack
     sl
     slurp
