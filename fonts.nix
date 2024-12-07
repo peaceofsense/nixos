@@ -21,7 +21,8 @@
       dejavu_fonts
       nerdfonts
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-emoji
       jetbrains-mono
       font-awesome_5
