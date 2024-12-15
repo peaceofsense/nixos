@@ -146,11 +146,7 @@
   # List packages installed in system profile. To search, run:
 
   environment.systemPackages = with pkgs; [
-    (lutris.override {
-       extraPkgs = pkgs: [
-         # List package dependencies here
-       ];
-    })
+    anki
     testdisk-qt
     bibata-cursors
     blueman
@@ -232,6 +228,7 @@
     #steam-run
     spotify
     starship
+    sticky
     stow
     #sublime4
     swaynotificationcenter
@@ -280,8 +277,9 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
+      xdg-desktop-portal
       #xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      #xdg-desktop-portal-wlr
       xdg-desktop-portal-hyprland
     ];
   }; 
