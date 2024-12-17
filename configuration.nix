@@ -202,7 +202,7 @@
     nwg-look
     obs-studio
     obsidian
-    okular
+    kdePackages.okular
     openconnect
     # openssl_3_3
     pamixer
