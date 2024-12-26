@@ -198,6 +198,7 @@
     lua
     luajitPackages.luarocks
     neovim
+    ntfs3g
     nix
     nwg-look
     obs-studio
