@@ -33,7 +33,10 @@
   # Enable i2c
   hardware.i2c.enable = true;
 
-# Set your time zone.
+  # KdeConnect
+  programs.kdeconnect.enable = true;
+
+  # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
@@ -177,6 +180,7 @@
     gparted
     gnome-boxes
     gnome-control-center
+    gnomeExtensions.gsconnect
     nautilus
     gnugrep
     grim
@@ -191,15 +195,19 @@
     hyprpicker
     hyprshot
     jabref
+    kdePackages.kdeconnect-kde
     kitty
     kittysay
+    libheif
     libnotify
+    libraw
     libreoffice-still
     lua
     luajitPackages.luarocks
     neovim
     ntfs3g
     nix
+    nufraw
     nwg-look
     obs-studio
     obsidian
@@ -224,6 +232,7 @@
     slack
     sl
     slurp
+    smartmontools
     solaar
     stow
     #steam-run
@@ -254,11 +263,13 @@
     wl-clipboard
     wl-color-picker
     wsdd
+    wtype
     xclip
     xdg-utils
     xournalpp
     yazi
     zathura
+    zip
     zoom-us
     zotero
     zoxide
@@ -345,7 +356,7 @@ nixpkgs = {
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 3389 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = pkgs.lib.range 1714 1764; # Full KDE Connect range
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
