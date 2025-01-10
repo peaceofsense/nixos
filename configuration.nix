@@ -11,7 +11,8 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/programs.nix
-      ./modules/service.nix
+      ./modules/services.nix
+      ./modules/users.nix
     ];
 
   # Bootloader.
@@ -69,21 +70,6 @@
 
   # Configure console keymap
   console.keyMap = "de";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.peaceofsense = {
-    isNormalUser = true;
-    description = "peaceofsense";
-    extraGroups = [ "adbsuers" "sambashare" "networkmanager" "i2c" "wheel" "input" "libvirtd" "vboxusers" "qemu-libvirtd" "video" "audio" "disk" ];
-    packages = with pkgs; [
-    arc-theme
-    arc-kde-theme
-    graphite-gtk-theme
-    graphite-kde-theme
-    orchis-theme
-    yaru-theme
-    ];
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
