@@ -11,6 +11,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/programs.nix
+      ./modules/services.nix
     ];
 
   # Bootloader.
@@ -55,20 +56,7 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true; # Disable full GNOME
-    displayManager.gdm.enable = true;
-  };
 
-  services.power-profiles-daemon.enable = false;
-
-
-  services.displayManager = { 
-    #  sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
-  #  sddm.enable = true;
-  };
   # Kernel modules load
   # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
   virtualisation.virtualbox.host.enable = true;
@@ -78,36 +66,9 @@
   boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
   '';
-  services.udev.extraRules = ''
-      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
-
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-  
-  services.samba = {
-    enable = true;
-  };
-
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # Configure console keymap
   console.keyMap = "de";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
- 
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.peaceofsense = {
@@ -150,53 +111,27 @@
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";  # Runs garbage collection weekly
   nix.gc.options = "--delete-older-than 30d";
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = "60";
-      STOP_CHARGE_THRESH_BAT0 = "80";
-      START_CHARGE_THRESH_BAT1 = "60";
-      STOP_CHARGE_THRESH_BAT1 = "80";
-
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-    };
+  
+  nixpkgs = {
+    overlays = [
+      (self: super: {
+        gnome-shell = super.gnome-shell.overrideAttrs (old: {
+          patches = (old.patches or []) ++ [
+            (self.pkgs.writeText "bg.patch" ''
+              --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+              +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+              @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
+              /* Login Dialog */
+              .login-dialog {
+                background-color: $_gdm_bg;
+              +  background-color: #000000;
+              }
+            '')
+          ];
+        });
+      })
+    ];
   };
-nixpkgs = {
-  overlays = [
-    (self: super: {
-      gnome-shell = super.gnome-shell.overrideAttrs (old: {
-        patches = (old.patches or []) ++ [
-          (self.pkgs.writeText "bg.patch" ''
-            --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-            +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-            @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
-             /* Login Dialog */
-             .login-dialog {
-               background-color: $_gdm_bg;
-            +  background-color: #000000;
-             }
-          '')
-        ];
-      });
-    })
-  ];
-};
-
-
-  # List services that you want to enable:
-  services.xrdp = {
-    enable = true;
-    openFirewall = true;
-  };
-
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 3389 ];

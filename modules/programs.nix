@@ -13,7 +13,6 @@
 
   # Install programs
   programs.firefox.enable = true;
-  programs.gh.enable = false;  # Uncomment if you want to enable GitHub CLI
   programs.thunar.enable = true;
 
   # Enable Neovim and set it as the default editor
