@@ -9,6 +9,7 @@
       ./hardware-configuration.nix
       ./fonts.nix
       ./pipewire.nix
+      ./modules/packages.nix
     ];
 
   # Bootloader.
@@ -145,136 +146,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-
-  environment.systemPackages = with pkgs; [
-    anki
-    testdisk-qt
-    bibata-cursors
-    blueman
-    btop
-    brave
-    brightnessctl
-    cifs-utils
-    cmatrix
-    conda
-    cowsay
-    dconf
-    ddcutil
-    ddcui
-    discord
-    droidcam 
-    exfatprogs
-    eyedropper
-    fastfetch
-    feh
-    ffmpeg-full
-    freerdp3
-    fswebcam
-    fzf
-    gcc
-    geany
-    git
-    github-desktop
-    gparted
-    gnome-boxes
-    gnome-control-center
-    gnomeExtensions.gsconnect
-    nautilus
-    gnugrep
-    grim
-    gvfs
-    gnome.gvfs
-    hfsprogs
-    htop
-    hypridle
-    hyprland
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprshot
-    jabref
-    kdePackages.kdeconnect-kde
-    kitty
-    kittysay
-    libheif
-    libnotify
-    libraw
-    libreoffice-still
-    lua
-    luajitPackages.luarocks
-    neovim
-    ntfs3g
-    nix
-    nufraw
-    nwg-look
-    obs-studio
-    obsidian
-    kdePackages.okular
-    openconnect
-    # openssl_3_3
-    pamixer
-    papirus-icon-theme
-    parted
-    pdfarranger
-    phinger-cursors
-    playerctl
-    python3
-    qalculate-gtk
-    rdesktop
-    remmina
-    ripgrep
-    ripgrep-all
-    rofi-wayland
-    samba
-    scrcpy
-    slack
-    sl
-    slurp
-    smartmontools
-    solaar
-    stow
-    #steam-run
-    spotify
-    starship
-    sticky
-    stow
-    #sublime4
-    swaynotificationcenter
-    swayidle
-    swaylock-effects
-    tealdeer
-    telegram-desktop
-    texliveFull
-    texstudio
-    thunderbird
-    trash-cli
-    tree
-    unzip
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    virtualbox
-    vlc
-    vscode
-    waybar
-    wget
-    whatsapp-for-linux
-    wl-clipboard
-    wl-color-picker
-    wsdd
-    wtype
-    xclip
-    xdg-utils
-    xournalpp
-    yazi
-    zathura
-    zip
-    zoom-us
-    zotero
-    zoxide
-    # Install a package from unstable
-  ];
 
   fileSystems."/mnt/share" = {
     device = "//131.188.251.29";
