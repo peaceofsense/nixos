@@ -8,7 +8,7 @@
     jabref
     libreoffice-still
     obsidian
-    kde.package.okular
+    kdePackages.okular
     pandoc
     pdfarranger
     texliveFull
@@ -72,7 +72,7 @@
     tree
     unzip
     wget
-    wl.clipboard
+    wl-clipboard
     xclip
     xdg-utils
     zip
