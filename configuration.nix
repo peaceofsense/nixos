@@ -11,7 +11,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/programs.nix
-      ./modules/services.nix
+      ./modules/service.nix
     ];
 
   # Bootloader.
