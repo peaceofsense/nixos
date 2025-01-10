@@ -1,3 +1,7 @@
+{ config, pkgs, ... }:
+
+{
+
 # Enable the GNOME Desktop Environment.
 services.xserver = {
   enable = true;
@@ -62,3 +66,5 @@ services.xrdp = {
 
 # OpenSSH daemon (commented out, enable if needed).
 # services.openssh.enable = true;
+
+}

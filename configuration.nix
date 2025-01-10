@@ -112,26 +112,7 @@
   nix.gc.dates = "weekly";  # Runs garbage collection weekly
   nix.gc.options = "--delete-older-than 30d";
   
-  nixpkgs = {
-    overlays = [
-      (self: super: {
-        gnome-shell = super.gnome-shell.overrideAttrs (old: {
-          patches = (old.patches or []) ++ [
-            (self.pkgs.writeText "bg.patch" ''
-              --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-              +++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
-              @@ -15,4 +15,5 @@ $_gdm_dialog_width: 23em;
-              /* Login Dialog */
-              .login-dialog {
-                background-color: $_gdm_bg;
-              +  background-color: #000000;
-              }
-            '')
-          ];
-        });
-      })
-    ];
-  };
+
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 3389 ];
