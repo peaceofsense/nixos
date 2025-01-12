@@ -88,9 +88,9 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal
-      #xdg-desktop-portal-gtk
+      xdg-desktop-portal-gtk
       #xdg-desktop-portal-wlr
-      xdg-desktop-portal-hyprland
+      #xdg-desktop-portal-hyprland
     ];
   }; 
   # Enable automatic garbage collection

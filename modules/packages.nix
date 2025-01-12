@@ -109,6 +109,7 @@
 
     # Networking and Communication
     discord
+    ferdium
     fractal
     freerdp3
     github-desktop
@@ -121,6 +122,7 @@
     telegram-desktop
     whatsapp-for-linux
     wsdd
+    kdePackages.xwaylandvideobridge #x11 to wayland screensharing
     zoom-us
 
     # Hardware and Peripherals
@@ -146,6 +148,7 @@
     # Miscellaneous
     cmatrix
     cowsay
+    wttrbar
     yazi
 
   ];
