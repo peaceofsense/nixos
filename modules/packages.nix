@@ -117,10 +117,8 @@
     openconnect
     rdesktop
     remmina
-    slack
     solaar
     telegram-desktop
-    whatsapp-for-linux
     wsdd
     kdePackages.xwaylandvideobridge #x11 to wayland screensharing
     zoom-us
