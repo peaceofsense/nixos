@@ -36,7 +36,7 @@
   hardware.pulseaudio.enable = false;
   # Enable i2c
   hardware.i2c.enable = true;
-  hardware.opentabletdriver.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 

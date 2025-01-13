@@ -9,6 +9,7 @@
     libreoffice-still
     obsidian
     kdePackages.okular
+    opentabletdriver
     pandoc
     pdfarranger
     texliveFull
@@ -148,7 +149,7 @@
     cowsay
     wttrbar
     yazi
-
+    dotnet-runtime
   ];
 
 }
