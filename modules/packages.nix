@@ -9,7 +9,8 @@
     libreoffice-still
     obsidian
     kdePackages.okular
-    opentabletdriver
+    #    opentabletdriver
+    megasync
     pandoc
     pdfarranger
     texliveFull
@@ -145,6 +146,7 @@
     virtualbox
 
     # Miscellaneous
+    android-tools
     cmatrix
     cowsay
     wttrbar
