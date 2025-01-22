@@ -9,7 +9,8 @@
     libreoffice-still
     obsidian
     kdePackages.okular
-    #    opentabletdriver
+    
+    # opentabletdriver
     megasync
     pandoc
     pdfarranger
@@ -94,7 +95,6 @@
     wl-color-picker
 
     # Web Browsing
-    brave
     vivaldi
     vivaldi-ffmpeg-codecs
 
@@ -136,7 +136,7 @@
     nufraw
     obs-studio
     playerctl
-    pavucontrol
+    pavucontrol 
     scrcpy
     spotify
     vlc
@@ -145,7 +145,14 @@
     gnome-boxes
     virtualbox
 
+    # Security
+    proton-pass
+    ente-cli
+    ente-auth
+
+
     # Miscellaneous
+    android-udev-rules
     android-tools
     cmatrix
     cowsay
