@@ -21,6 +21,11 @@
     defaultEditor = true;
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableSSHSupport = true;
+  };
   # Enable Steam 
   # programs.steam = {
   #   enable = true;

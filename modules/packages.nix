@@ -31,6 +31,7 @@
 
 
     # System Utilities
+    appimage-run
     blueman    
     brightnessctl
     btop
@@ -95,6 +96,8 @@
     wl-color-picker
 
     # Web Browsing
+    brave
+    mullvad-browser
     vivaldi
     vivaldi-ffmpeg-codecs
 
@@ -149,7 +152,8 @@
     proton-pass
     ente-cli
     ente-auth
-
+    gnupg # Signature and encryption lib
+    pinentry-tty
 
     # Miscellaneous
     android-udev-rules
