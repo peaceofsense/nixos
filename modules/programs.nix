@@ -23,7 +23,6 @@
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
     enableSSHSupport = true;
   };
   # Enable Steam 

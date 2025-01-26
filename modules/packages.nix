@@ -7,6 +7,7 @@
     anki
     jabref
     libreoffice-still
+    localsend
     obsidian
     kdePackages.okular
     
@@ -55,6 +56,7 @@
     kitty
     kittysay
     libnotify
+    libstdcxx5
     neovim
     pamixer
     parted
@@ -153,7 +155,7 @@
     ente-cli
     ente-auth
     gnupg # Signature and encryption lib
-    pinentry-tty
+    pinentry-curses
 
     # Miscellaneous
     android-udev-rules
