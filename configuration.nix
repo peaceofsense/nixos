@@ -101,7 +101,7 @@
 
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [ 3389 18080 37889 18089 37889];
   # networking.firewall.allowedUDPPorts = pkgs.lib.range 1714 1764; # Full KDE Connect range
   # Or disable the firewall altogether.
   networking.firewall.enable = true;

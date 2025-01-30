@@ -150,12 +150,15 @@
     gnome-boxes
     virtualbox
 
-    # Security
+    # Security & Privacy
     proton-pass
     ente-cli
     ente-auth
     gnupg # Signature and encryption lib
+    p2pool
+    monero-gui
     pinentry-curses
+    xmrig
 
     # Miscellaneous
     android-udev-rules
