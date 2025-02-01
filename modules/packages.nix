@@ -9,6 +9,7 @@
     libreoffice-still
     localsend
     obsidian
+    ollama
     kdePackages.okular
     
     # opentabletdriver

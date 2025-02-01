@@ -62,6 +62,7 @@
   # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
   virtualisation.virtualbox.host.enable = true;
   virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
   boot.kernelModules = [ "kvm-amd" "kvm-intel" "v4l2loopback"]; # "i2c-dev" "ddcci_backlight"];
   boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   boot.extraModprobeConfig = ''
