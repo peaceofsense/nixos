@@ -30,6 +30,9 @@
   programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpacked
   ];
+  
+  programs.virt-manager.enable = true;
+  
   # Enable Steam 
   # programs.steam = {
   #   enable = true;

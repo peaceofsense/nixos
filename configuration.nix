@@ -8,7 +8,6 @@
     [
       ./hardware-configuration.nix
       ./modules/fonts.nix
-      ./modules/kvm.nix
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/programs.nix
@@ -21,21 +20,41 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.devices = [ "nodev" ] ;
-  boot.loader.grub.efiSupport = true;	
+  boot.loader.grub.efiSupport = true;
+  # Kernel modules load
+  # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "v4l2loopback"]; # "i2c-dev" "ddcci_backlight"];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+  '';
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # Disable waiting for NetworkManager to be online (speeds up boot)
   systemd.services.NetworkManager-wait-online.enable = false;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
-  # Enable networking
+  # Wireless (Uncomment if using Wi-Fi with wpa_supplicant)
+  # networking.wireless.enable = true;  
+
+  # Hostname Configuration
+  networking.hostName = "nixos"; 
+
+  # Network Configuration
   networking.networkmanager.enable = true;
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  # networking.proxy.default = "http://user:password@proxy:port/";  # Uncomment if needed
+    
+  # Open ports in the firewall.
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
+  networking.firewall.allowedTCPPorts = [ 3389 18080 37889 18089 37889];
+  # networking.firewall.allowedUDPPorts = pkgs.lib.range 1714 1764; # Full KDE Connect range
+
+  # Hardware Configuration
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;
-  # Enable i2c
+
+  # Enable I2C
   hardware.i2c.enable = true;
 
   # Set your time zone.
@@ -57,15 +76,14 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  # Virtualization
+  users.groups.libvirtd.members = ["peaceofsense"];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation.docker.enable = true;
 
-
-  # Kernel modules load
-  # boot.extraModulePackages = [ config.boot.kernelModules.ddcci-driver ];
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" "v4l2loopback"]; # "i2c-dev" "ddcci_backlight"];
-  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
-  '';
 
   # Configure console keymap
   console.keyMap = "de";
@@ -92,6 +110,7 @@
       xdg-desktop-portal-hyprland
     ];
   }; 
+  
   # Enable automatic garbage collection
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";  # Runs garbage collection weekly
@@ -99,15 +118,7 @@
   
 
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 3389 18080 37889 18089 37889];
-  # networking.firewall.allowedUDPPorts = pkgs.lib.range 1714 1764; # Full KDE Connect range
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
-
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 }
