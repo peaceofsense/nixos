@@ -111,8 +111,7 @@
     git
     lua
     luajitPackages.luarocks
-    python3
-    vscode
+    vscodium-fhs
     wtype
 
     # Networking and Communication
@@ -157,7 +156,7 @@
     ente-auth
     gnupg # Signature and encryption lib
     p2pool
-    monero-gui
+   #monero-gui
     pinentry-curses
     xmrig
 
