@@ -9,6 +9,8 @@ services.xserver = {
   displayManager.gdm.enable = true;
 };
 
+services.gnome.gnome-keyring.enable = true;
+
 # Disable power-profiles-daemon.
 services.power-profiles-daemon.enable = false;
 
@@ -64,8 +66,17 @@ services.xrdp = {
   openFirewall = true;
 };
 
-
 services.fwupd.enable = true;
+
+services.blueman.enable = true;
+
+services.solaar = {
+  enable = true; # Enable the service
+  package = pkgs.solaar; # The package to use
+  window = "hide"; # Show the window on startup (show, *hide*, only [window only])
+  batteryIcons = "regular"; # Which battery icons to use (*regular*, symbolic, solaar)
+  extraArgs = ""; # Extra arguments to pass to solaar on startup
+};
 
 # OpenSSH daemon (commented out, enable if needed).
 # services.openssh.enable = true;

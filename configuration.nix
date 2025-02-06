@@ -29,7 +29,6 @@
     options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
   '';
 
-  gnome.gnome-keyring.enable = true gnome.gnome-keyring.enable = true;;
 
   # Disable waiting for NetworkManager to be online (speeds up boot)
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -55,7 +54,9 @@
   # Hardware Configuration
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;
-
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+  
   # Enable I2C
   hardware.i2c.enable = true;
 

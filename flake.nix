@@ -7,9 +7,15 @@
     #home-manager.url = "github:nix-community/home-manager/release-24.05";
     #home-manager.inputs.nixpkgs.follows = "nixpkgsStable"; # looks for same version of packages
     nixpkgsUnstable.url = "nixpkgs/nixos-unstable";
+    solaar = {
+      url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
+      #url = "https://flakehub.com/f/Svenum/Solaar-Flake/0.1.1.tar.gz"; # uncomment line for solaar version 1.1.13
+      #url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
+      inputs.nixpkgs.follows = "nixpkgsStable";
+    };
   };
   
-  outputs = { self, nixpkgsStable, nixpkgsUnstable, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgsStable, nixpkgsUnstable, home-manager, solaar,... } @ inputs:
     let
       lib = nixpkgsStable.lib; # It is like pass nixpkgs to this var
       system = "x86_64-linux";
@@ -20,7 +26,10 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;        
-	  modules = [ ./configuration.nix ];
+	  modules = [ 
+      ./configuration.nix 
+      solaar.nixosModules.default
+      ];
       };
     };
   #  homeConfigurations = {

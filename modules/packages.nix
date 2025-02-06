@@ -94,9 +94,11 @@
     nwg-look
     papirus-icon-theme
     phinger-cursors
+    pywal
     starship
     waybar
     wl-color-picker
+    wlogout
 
     # Web Browsing
     brave
@@ -124,14 +126,9 @@
     openconnect
     rdesktop
     remmina
-    solaar
-    telegram-desktop
     wsdd
     kdePackages.xwaylandvideobridge #x11 to wayland screensharing
     zoom-us
-
-    # Hardware and Peripherals
-    droidcam
 
     # Multimedia
     ffmpeg-full
@@ -148,15 +145,12 @@
 
     # Virtualisation
     gnome-boxes
-    virtualbox
 
     # Security & Privacy
     proton-pass
     ente-cli
     ente-auth
     gnupg # Signature and encryption lib
-    p2pool
-   #monero-gui
     pinentry-curses
     xmrig
 
