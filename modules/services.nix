@@ -64,6 +64,9 @@ services.xrdp = {
   openFirewall = true;
 };
 
+
+services.fwupd.enable = true;
+
 # OpenSSH daemon (commented out, enable if needed).
 # services.openssh.enable = true;
 

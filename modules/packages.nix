@@ -10,8 +10,7 @@
     localsend
     obsidian
     ollama
-    kdePackages.okular
-    
+    kdePackages.okular    
     # opentabletdriver
     megasync
     pandoc
@@ -43,6 +42,7 @@
     feh
     fzf
     nautilus
+    gnome-firmware
     gnugrep
     grim
     gvfs
