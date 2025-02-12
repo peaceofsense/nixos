@@ -80,6 +80,12 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
+  # OpenGL
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # Virtualization
   users.groups.libvirtd.members = ["peaceofsense"];
   virtualisation.virtualbox.host.enable = true;

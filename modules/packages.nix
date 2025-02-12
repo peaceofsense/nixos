@@ -62,6 +62,7 @@
     pamixer
     parted
     qalculate-gtk
+    rar
     ripgrep
     ripgrep-all
     rofi-wayland
@@ -77,6 +78,7 @@
     tealdeer
     trash-cli
     tree
+    unrar
     unzip
     wget
     wl-clipboard
@@ -162,6 +164,13 @@
     wttrbar
     yazi
     dotnet-runtime
+    #(lutris.override {
+    #   extraPkgs = pkgs: [
+         # List package dependencies here
+    #   ];
+    #})
+    wineWowPackages.stable
+    winetricks
   ];
 
 }

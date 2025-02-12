@@ -79,6 +79,6 @@ services.solaar = {
 };
 
 # OpenSSH daemon (commented out, enable if needed).
-# services.openssh.enable = true;
+services.openssh.enable = true;
 
 }
