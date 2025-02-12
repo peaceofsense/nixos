@@ -15,6 +15,7 @@
     megasync
     pandoc
     pdfarranger
+    syncthing
     texliveFull
     texstudio
     thunderbird

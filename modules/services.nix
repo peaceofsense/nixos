@@ -81,4 +81,17 @@ services.solaar = {
 # OpenSSH daemon (commented out, enable if needed).
 services.openssh.enable = true;
 
+services.syncthing = {
+  enable = true;
+  user = "peaceofsense";
+  openDefaultPorts = true;
+  dataDir = "/home/peaceofsense/Documents";
+  configDir = "/home/peaceofsense/.config/syncthing";
+  settings.gui = {
+    user = "peaceofsense";
+  };
+};
+
+services.tailscale.enable = true;
+
 }
