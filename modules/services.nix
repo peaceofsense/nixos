@@ -87,8 +87,20 @@ services.syncthing = {
   openDefaultPorts = true;
   dataDir = "/home/peaceofsense/Documents";
   configDir = "/home/peaceofsense/.config/syncthing";
-  settings.gui = {
-    user = "peaceofsense";
+  overrideDevices = true;
+  overrideFolders = true;
+  settings = {
+    devices = {
+      "android" = { id = "ZQ6VMEA-MAK25XR-JU6NIRF-D45J2SZ-G477RYW-F4Y7YYM-N5UKLVG-TRTFRAN"; };
+    };
+    folders = {
+      "vault" = {
+        path = "/home/peaceofsense/Documents/vault";
+        devices = [ "android" ];
+        type = "sendonly";
+        ignorePerms = false;
+      };
+    };
   };
 };
 
