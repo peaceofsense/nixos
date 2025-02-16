@@ -13,7 +13,15 @@
 
   # Install programs
   programs.firefox.enable = true;
+  
+  # thunar
   programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+  programs.xfconf.enable = true; # Thunar remembers the setting
+
 
   # Enable Neovim and set it as the default editor
   programs.neovim = {

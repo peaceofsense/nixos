@@ -74,8 +74,6 @@
     sticky
     stow
     swaynotificationcenter
-    swayidle
-    swaylock-effects
     tealdeer
     trash-cli
     tree
