@@ -93,8 +93,6 @@
     gnome-control-center
     gnomeExtensions.gsconnect
     nwg-look
-    papirus-icon-theme
-    phinger-cursors
     pywal
     starship
     waybar

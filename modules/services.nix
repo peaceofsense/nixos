@@ -5,8 +5,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver = {
     enable = true;
-    desktopManager.gnome.enable = true; # Disable full GNOME
-    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = false; # Disable full GNOME
+    displayManager.gdm.enable = false;
   };
   
   services.gnome.gnome-keyring.enable = true;
@@ -17,7 +17,7 @@
   # Display Manager Settings.
   services.displayManager = {
     # sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
-    # sddm.enable = true;
+    sddm.enable = true;
   };
   
   # Extra udev rules for i2c devices.

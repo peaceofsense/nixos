@@ -1,8 +1,8 @@
-{pkgs, ...}: 
+{ pkgs, ... }: {
 
-{
   fonts = {
     packages = with pkgs; [
+      # Fonts
       font-awesome
       material-icons
       material-design-icons
@@ -33,7 +33,7 @@
 
     enableDefaultPackages = false;
 
-    # this fixes emoji stuff
+    # This fixes emoji stuff
     fontconfig = {
       defaultFonts = {
         monospace = [
@@ -47,4 +47,21 @@
       };
     };
   };
+
+  # Install GTK/Qt Themes and Icon Themes
+  environment.systemPackages = with pkgs; [
+    # GTK Themes
+    arc-theme
+    adwaita-qt
+    graphite-gtk-theme
+    orchis-theme
+
+    # Icon Themes
+    papirus-icon-theme
+    tela-icon-theme
+    breeze-icons
+    gnome-themes-extra
+  ];
+
+  
 }
