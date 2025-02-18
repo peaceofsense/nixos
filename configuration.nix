@@ -13,6 +13,7 @@
       ./modules/programs.nix
       ./modules/services.nix
       ./modules/users.nix
+      ./modules/greetd.nix
     ];
 
   # Bootloader.

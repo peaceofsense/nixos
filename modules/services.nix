@@ -18,7 +18,7 @@
   # Display Manager Settings.
   services.displayManager = {
     # sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
-    sddm.enable = true;
+    sddm.enable = false;
   };
   
   # Extra udev rules for i2c devices.
