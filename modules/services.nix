@@ -14,7 +14,19 @@
   
   # Disable power-profiles-daemon.
   services.power-profiles-daemon.enable = false;
-  
+
+  # TUI login
+  services.greetd = {
+  enable = true;
+  settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+      user = "peaceofsense";
+      };
+    };
+  };
+
+
   # Display Manager Settings.
   services.displayManager = {
     # sessionPackages = [ pkgs.gnome.gnome-session.sessions ];

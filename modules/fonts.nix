@@ -3,6 +3,7 @@
   fonts = {
     packages = with pkgs; [
       # Fonts
+      fira-code-nerdfont
       font-awesome
       material-icons
       material-design-icons
