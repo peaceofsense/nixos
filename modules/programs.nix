@@ -5,8 +5,11 @@
   programs.kdeconnect.enable = true;
 
   # Enable Hyprland with XWayland support
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
 
   # Enable adb (Android Debug Bridge)
   programs.adb.enable = true; 

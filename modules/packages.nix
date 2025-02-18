@@ -62,6 +62,7 @@
     neovim
     pamixer
     parted
+    polkit_gnome
     qalculate-gtk
     rar
     ripgrep
@@ -96,7 +97,6 @@
     pywal
     starship
     waybar
-    wl-color-picker
     wlogout
 
     # Web Browsing

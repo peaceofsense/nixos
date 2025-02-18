@@ -7,6 +7,7 @@
     enable = true;
     desktopManager.gnome.enable = false; # Disable full GNOME
     displayManager.gdm.enable = false;
+
   };
   
   services.gnome.gnome-keyring.enable = true;
