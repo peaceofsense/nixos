@@ -7,7 +7,7 @@
   # Enable Hyprland with XWayland support
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
+    withUWSM = false; # Failed attempt to make it work
     xwayland.enable = true;
   };
 
