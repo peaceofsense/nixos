@@ -20,14 +20,16 @@
       #lib-un = inputs.nixpkgUnstable.lib;
       pkgs = nixpkgsStable.legacyPackages.${system};
       pkgsUnstable = nixpkgsUnstable.legacyPackages.${system};
+      username = "peaceofsense";
     in {
     nixosConfigurations = {
-      monolith = lib.nixosSystem {
+      monolith = lib.nixosSystem { # System Name
         inherit system;        
-	  modules = [ 
-      ./configuration.nix 
-      solaar.nixosModules.default
-      ];
+	      modules = [ ./configuration.nix solaar.nixosModules.default ];
+        specialArgs = {
+          inherit username;
+          inherit pkgsUnstable;
+        };
       };
     };
   };
