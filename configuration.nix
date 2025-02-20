@@ -37,7 +37,7 @@
   # networking.wireless.enable = true;  
 
   # Hostname Configuration
-  networking.hostName = "nixos"; 
+  networking.hostName = "Monolith"; 
 
   # Network Configuration
   networking.networkmanager.enable = true;

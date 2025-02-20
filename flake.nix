@@ -1,9 +1,9 @@
 {
 
-  description = "Trying out flake!";
+  description = "Working flake?";
   
   inputs = {
-    nixpkgsStable.url = "nixpkgs/nixos-24.11";
+    nixpkgsStable.url = "nixpkgs/nixos-24.11"; # Change this to update version
     #home-manager.url = "github:nix-community/home-manager/release-24.05";
     #home-manager.inputs.nixpkgs.follows = "nixpkgsStable"; # looks for same version of packages
     nixpkgsUnstable.url = "nixpkgs/nixos-unstable";
