@@ -37,7 +37,7 @@
   # networking.wireless.enable = true;  
 
   # Hostname Configuration
-  networking.hostName = "Monolith"; 
+  networking.hostName = "monolith"; 
 
   # Network Configuration
   networking.networkmanager.enable = true;

@@ -4,8 +4,6 @@
   
   inputs = {
     nixpkgsStable.url = "nixpkgs/nixos-24.11"; # Change this to update version
-    #home-manager.url = "github:nix-community/home-manager/release-24.05";
-    #home-manager.inputs.nixpkgs.follows = "nixpkgsStable"; # looks for same version of packages
     nixpkgsUnstable.url = "nixpkgs/nixos-unstable";
     solaar = {
       url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
@@ -24,7 +22,7 @@
       pkgsUnstable = nixpkgsUnstable.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      monolith = lib.nixosSystem {
         inherit system;        
 	  modules = [ 
       ./configuration.nix 
@@ -32,12 +30,6 @@
       ];
       };
     };
-  #  homeConfigurations = {
-  #    peaceofsense = home-manager.lib.homeManagerConfiguration {
-  #      inherit pkgs;
-	#modules = [ ./home.nix ]; 
-  #    };
-  #  };
   };
 
 }
