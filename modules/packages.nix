@@ -1,8 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs, pkgsUnstable, ... }: {
 
   # List packages installed in system profile.
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = 
+    (with pkgsUnstable; [
+      # Unstable here
+      zed-editor
+    ])
+
+    ++
+
+    (with pkgs; [
     # Office and Productivity
     anki
     jabref
@@ -168,6 +176,6 @@
     #})
     wineWowPackages.stable
     winetricks
-  ];
+  ]);
 
 }

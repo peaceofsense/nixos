@@ -1,7 +1,7 @@
 # Use your harware-configuration.nix
 
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsUnstable, ... }:
 
 {
   imports =
