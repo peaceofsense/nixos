@@ -11,6 +11,11 @@
     ++
 
     (with pkgs; [
+    # Dictionary
+    hunspellDicts.en_GB-ise
+    hunspellDicts.en_GB-ize
+    hunspellDicts.de_DE
+
     # Office and Productivity
     anki
     jabref
